@@ -12,6 +12,7 @@ from server.utils.csv_import_to_mysql import mysql_import
 async def lifespan(app: FastAPI):
     mysql_import()
     yield
+    # Clean up
 
 app = FastAPI(root_path="/api/v1", lifespan=lifespan)
 
