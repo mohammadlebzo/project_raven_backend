@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  project_r:
+    container_name: project_r
+    image: mysql:8.0
+    environment:
+      - MYSQL_DATABASE=raven
+      - MYSQL_ROOT_PASSWORD=Hound621
+    ports:
+      - '3306:3306'
+    volumes:
+      - dbdata6:/data/db
+volumes:
+  dbdata6:
