@@ -11,3 +11,7 @@ class Item(ItemBase):
     price: float
     location: str
 
+class ItemWithCount(ItemBase):
+    items: list[Item]
+    full_total: int
+

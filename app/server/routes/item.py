@@ -18,6 +18,6 @@ def get_user(id:int, db:Session=Depends(get_db)):
         raise HTTPException(status_code=404, detail="Item not found")
     return db_user
 
-@router.get("/", response_model=list[schema.Item])
+@router.get("/", response_model=schema.ItemWithCount)
 def get_users(page_number:int=0, page_size:int=0, location:str="",db:Session=Depends(get_db)):
     return get_items(db, page_number, page_size, location)

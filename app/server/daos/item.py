@@ -10,3 +10,9 @@ def get_items_dao(db: Session, page:int=0, size:int=10, locFilter:str=""):
         return db.query(Item).filter(Item.location == locFilter.upper()).offset(( ( page - 1 ) * size ) if page > 0 else 0).limit(size).all()
     
     return db.query(Item).offset(( ( page - 1 ) * size ) if page > 0 else 0).limit(size).all()
+
+def get_items_count_dao(db: Session, locFilter:str=""):
+    if locFilter != "":
+        return db.query(Item).filter(Item.location == locFilter.upper()).count()
+    
+    return db.query(Item).count()
